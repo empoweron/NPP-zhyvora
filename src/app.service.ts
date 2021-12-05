@@ -3,43 +3,17 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class AppService {
   getHello(): string {
-    return 'Hello World!';
+let a, b: number;
+a = Math.floor(Math.random() * 100);  
+b = Math.floor(Math.random() * 100);  
+
+const res = this.isPairedNumber(a+b);
+return`${res}`;
   }
 
-  getNumber(): number{
-    const a=30;
-    const b=40;
-    const c=a+b;
-    return c;
+  isPairedNumber(number): boolean {
+    return !Boolean(number % 2);
+  }
     
-    }
-    
-    getString(): string{
-    const name='Maxim';
-    const lastname='Zhyvora';
-    const fullname=name+' '+lastname;
-    return fullname;
-    }
-    
-    getArrays():number[]{
-    const list: number[]=[1,2,3];
-    return list;
-    }
-    
-    getEnums():number{
-      const enum color{Black,White,Green};
-      let c:color=color.Black;
-      return c;
-    }
-    
-    getMultitypeArrays():(string|number)[][]{
-      const multlist:(string|number)[][]=[['Maxim',10],['day',16]];
-      return multlist;
-    }
-    
-    getMultitypeValues(): number|string{
-      const d=17;
-      return d;
-    }
 }
 
